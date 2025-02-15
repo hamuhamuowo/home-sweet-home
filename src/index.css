@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+* {
+  font-family: serif;
+  font-smooth: never !important;
+  -webkit-font-smoothing: none !important;
+  image-rendering: pixelated;
+  -webkit-image-rendering: pixelated;
+  -webkit-tap-highlight-color: transparent;
+}
