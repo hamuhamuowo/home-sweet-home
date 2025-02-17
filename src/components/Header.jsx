@@ -1,10 +1,16 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faLock } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocationDot,
+  faLock,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import ham from "../assets/hamham.png";
 
 const Header = () => {
+  const skills = ["HTML/CSS", "Javascript", "React"];
+
   return (
     <div>
       <div className="flex justify-around h-[70px] items-center">
@@ -37,11 +43,16 @@ const Header = () => {
               <FontAwesomeIcon icon={faLinkedin} className="cursor-pointer" />
             </div>
             <p>junior frontend developer</p>
-            <div className="flex gap-1 justify-end">
-              <span>skill1</span>
-              <span>skill2</span>
-              <span>skill3</span>
-              <span>skill4</span>
+            <div className="flex gap-1 justify-end items-center">
+              <FontAwesomeIcon icon={faHeart} className="cursor-pointer mr-1" />
+              {skills.map((skill, i) => (
+                <div
+                  key={i}
+                  className="pl-3 pr-3 pt-1 pb-1 bg-gray-300 rounded-lg font-semibold"
+                >
+                  {skill}
+                </div>
+              ))}
             </div>
           </div>
         </div>
