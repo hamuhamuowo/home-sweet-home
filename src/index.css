@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 * {
-  font-family: serif;
+  font-family: san-serif;
   font-smooth: never !important;
   -webkit-font-smoothing: none !important;
   image-rendering: pixelated;
