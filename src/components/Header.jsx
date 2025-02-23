@@ -1,4 +1,5 @@
-import React from "react";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../firebaseConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -9,6 +10,21 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import ham from "../assets/hamham.png";
 
 const Header = () => {
+  const ADMIN_GITHUB_ID = "186709135";
+  const handleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const githubId = result.user.providerData[0].uid;
+      if (githubId !== ALLOWED_GITHUB_ID) {
+        alert("허용된 계정이 아닙니다. 로그인할 수 없습니다.");
+        await signOut(auth); // 로그아웃
+        return;
+      }
+      console.log("로그인 성공:", result.user);
+    } catch (error) {
+      console.error("Login Failed:", error);
+    }
+  };
   const skills = ["HTML/CSS", "Javascript", "React"];
 
   return (
@@ -20,7 +36,7 @@ const Header = () => {
             write
           </button>
           <button className="cursor-pointer">
-            <FontAwesomeIcon icon={faLock} />
+            <FontAwesomeIcon icon={faLock} onClick={handleLogin} />
           </button>
         </div>
       </div>
