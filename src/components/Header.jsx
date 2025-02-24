@@ -1,4 +1,4 @@
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "../../firebaseConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -15,7 +15,7 @@ const Header = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const githubId = result.user.providerData[0].uid;
-      if (githubId !== ALLOWED_GITHUB_ID) {
+      if (githubId !== ADMIN_GITHUB_ID) {
         alert("허용된 계정이 아닙니다. 로그인할 수 없습니다.");
         await signOut(auth); // 로그아웃
         return;
