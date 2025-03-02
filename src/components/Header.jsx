@@ -8,8 +8,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import ham from "../assets/hamham.png";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const ADMIN_GITHUB_ID = "186709135";
   const handleLogin = async () => {
     try {
@@ -26,13 +28,19 @@ const Header = () => {
     }
   };
   const skills = ["HTML/CSS", "Javascript", "React"];
+  const onClickWrite = () => {};
 
   return (
     <div>
       <div className="flex justify-around h-[70px] items-center">
-        <h1 className="text-3xl font-black">blog name</h1>
+        <h1 onClick={() => navigate("/")} className="text-3xl font-black">
+          blog name
+        </h1>
         <div className="flex gap-3">
-          <button className="bg-gray-200 px-2 py-1 cursor-pointer">
+          <button
+            onClick={() => navigate("/write")}
+            className="bg-gray-200 px-2 py-1 cursor-pointer"
+          >
             write
           </button>
           <button className="cursor-pointer">
