@@ -27,7 +27,7 @@ const Header = () => {
       console.error("Login Failed:", error);
     }
   };
-  const skills = ["HTML/CSS", "Javascript", "React"];
+  const skills = ["HTML/CSS", "Javascript", "React", "Vue"];
   const onClickWrite = () => {};
 
   return (
@@ -68,11 +68,11 @@ const Header = () => {
             </div>
             <p>junior frontend developer</p>
             <div className="flex gap-1 justify-end items-center">
-              <FontAwesomeIcon icon={faHeart} className="cursor-pointer mr-1" />
+              <FontAwesomeIcon icon={faHeart} className="mr-1" />
               {skills.map((skill, i) => (
                 <div
                   key={i}
-                  className="pl-3 pr-3 pt-1 pb-1 bg-gray-300 rounded-lg font-semibold"
+                  className="pl-3 pr-3 pt-1 pb-1 bg-gray-300 rounded-lg font-semibold cursor-pointer transition delay-150 duration-300 ease-in-out hover:bg-yellow-300"
                 >
                   {skill}
                 </div>
